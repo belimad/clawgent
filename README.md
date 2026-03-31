@@ -3,7 +3,7 @@
 
 <img width="208" alt="ClawLite Logo" src="https://raw.githubusercontent.com/belimad/clawlite/main/78390238-aed0-42fe-b8de-7d7d69ab8b1c.png">
  
-</p> 
+</p>  
 
 <h1 align="center">🦀 ClawLite</h1>
 <p align="center"><strong>OpenClaw without the need for servers.</strong></p>
