@@ -17,7 +17,7 @@ The primary purpose of Symbols.dev is to streamline the design-to-development wo
 * **Modern component patterns**: Implementing contemporary atomic design principles and accessible UI patterns.
 * **Comprehensive version control**: Curated dashboards ensuring reliability, consistency, and style-guide adherence across multi-team environments.
 
-# Key Features
+# Key Features (Isomorphic) 
 
 * **Unified Symbol Orchestration**: Centralized management of complex vector assets with optimized paths and precision rendering.
 * **Automated Export Pipelines**: Specialized workflows for converting design files into production-ready React, Vue, or Svelte components.
