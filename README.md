@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/belimad/symbols/main/clawlite.png" width="220" alt="ClawLite logo" />
+  <img src="http://github.com/belimad/clawlite/blob/main/78390238-aed0-42fe-b8de-7d7d69ab8b1c.png" width="220" alt="ClawLite logo" />
 </p>
 
 <h1 align="center">🦀 ClawLite</h1>
