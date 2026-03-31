@@ -1,35 +1,96 @@
-# 🦀 ClawLite: Openclaw without the need for servers 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/belimad/symbols/main/clawlite.png" width="220" alt="ClawLite logo" />
+</p>
 
-**Comprehensive Version Control:** Curated dashboards ensuring reliability, consistency, and style-guide adherence across multi-team environments.
+<h1 align="center">🦀 ClawLite</h1>
+<p align="center"><strong>OpenClaw without the need for servers.</strong></p>
+
+<p align="center">
+  Lightweight local-first runtime for running OpenClaw agents without dedicated backend infrastructure.
+</p>
 
 ---
 
-## 🏗️ System Overview
-**Clawgent** serves as the primary execution layer within the **OpenClaw** ecosystem. It utilizes a sophisticated agentic architecture to facilitate high-performance state management and autonomous decision-making. Designed for quantitative precision, Clawgent ensures seamless telemetry and cross-module synchronization for complex macro-economic and derivative modeling.
+## Overview
 
-<img width="208" alt="Sponsored by Connamara" src="blob:https://gemini.google.com/571648d1-4add-45d7-887d-21fbf7d24f27">
+**ClawLite** is a stripped-down, local-first execution layer for the **OpenClaw** ecosystem. It is designed for developers who want the OpenClaw workflow without maintaining servers, distributed infrastructure, or long-running backend services.
 
-## ⚡ Key Features (Isomorphic)
+Instead of assuming a cloud deployment model, ClawLite focuses on a simpler runtime: direct execution, minimal operational overhead, and fast setup for local development, prototyping, and lightweight production use cases.
 
-* **Unified Symbol Orchestration:** Centralized management of complex vector assets and agent identities with optimized paths and precision rendering.
-* **Automated Export Pipelines:** Specialized workflows for converting raw analytical data into production-ready React, Vue, or Svelte visualization components.
-* **Cross-Framework Compatibility:** High-performance adapters for Tailwind CSS, CSS-in-JS, and standard module systems, ensuring UI consistency across the OpenClaw dashboard.
-* **Global Design Tokens:** Advanced implementation guides for synchronizing color palettes, spacing, and typography across disparate quantitative platforms.
-* **Dynamic State Manipulation:** Specialized documentation on programmatic weight injection and state-based agent animation within the multi-agent graph.
+It is intended for environments where you want:
 
-## 🛠️ Technology Stack
+- agent execution without standing up backend services
+- a smaller operational footprint
+- faster iteration during development
+- a simpler deployment model for single-user or low-complexity workloads
 
-* **TypeScript & React/Next.js:** Primary architecture providing type-safe asset consumption and seamless frontend integration for the agent supervisor.
-* **Vector Engine:** High-performance SVG optimization (SVGO) and transformation logic for lightning-fast telemetry visualization.
-* **Cloud-Native Dashboard:** A sophisticated management interface for real-time asset tracking and collaborative design iteration between distributed teams.
-* **Modern Tooling:** Utilizing contemporary package management (pnpm/Bun) and CI/CD pipelines for automated asset deployment and validator testing.
+---
 
-## 🚀 Quick Start
+## System Overview
 
-### 1. Environment Initialization
-Clone the repository and initialize the hermetic environment via pnpm:
+ClawLite acts as a compact runtime for OpenClaw-compatible agents and workflows. It reduces the infrastructure burden of the broader OpenClaw stack by collapsing execution into a lightweight environment that can run locally or in simple hosted setups.
+
+The project emphasizes:
+
+- **local-first execution** for fast iteration
+- **minimal infrastructure requirements** compared to full server-based deployments
+- **OpenClaw compatibility** where possible
+- **practical developer ergonomics** over orchestration complexity
+
+This makes it useful for experimentation, personal agents, educational projects, and smaller-scale deployments where full backend orchestration would be excessive.
+
+---
+
+## Key Features
+
+- **Serverless-style local runtime**  
+  Run OpenClaw workflows without maintaining dedicated servers or complex infrastructure.
+
+- **Low-overhead setup**  
+  Designed to get from clone to execution quickly, with minimal configuration.
+
+- **Lightweight execution model**  
+  Suitable for local agent workflows, testing, and rapid prototyping.
+
+- **OpenClaw-oriented architecture**  
+  Built to preserve the core OpenClaw development experience while reducing operational complexity.
+
+- **Developer-friendly iteration loop**  
+  Optimized for experimentation, debugging, and small deployments where simplicity matters.
+
+---
+
+## Technology Stack
+
+- **Rust**  
+  Core runtime implementation focused on performance, portability, and low resource usage.
+
+- **Cargo**  
+  Standard Rust package and build tooling for dependency management and reproducible builds.
+
+- **Local-first execution model**  
+  Prioritizes direct runtime execution instead of depending on persistent backend services.
+
+---
+
+## Use Cases
+
+ClawLite is a good fit for:
+
+- local development and testing
+- lightweight OpenClaw experiments
+- educational or research projects
+- personal agent workflows
+- environments where backend infrastructure is unnecessary or undesirable
+
+It is less suited to deployments that require heavy multi-user orchestration, persistent distributed coordination, or large-scale backend-managed workloads.
+
+---
+
+## Quick Start
+
+### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/belimad/clawgent.git](https://github.com/GarrettBullish/clawgent.git)
-cd clawgent
-pnpm install
+git clone https://github.com/belimad/clawlite.git
+cd clawlite
