@@ -1,88 +1,72 @@
 <p align="center">
-  <img width="208" alt="Lyra Logo" src="https://raw.githubusercontent.com/kalshi-labs/lyra/main/assets/lyra_glyph.png">
+  <img width="208" alt="Regent Logo" src="https://raw.githubusercontent.com/kalshi-labs/regent/main/assets/regent_glyph.png">
 </p>
 
-<h1 align="center">✨ Lyra-Core v2.1</h1>
-<p align="center"><strong>High-throughput deterministic truth synthesis for Kalshi.</strong></p>
-
-<p align="center">
-  A distributed, low-latency execution layer for autonomous event-settlement and Bayesian truth-verification in regulated prediction markets.
-</p>
+<h1 align="center">✨ Regent-Core v2.1: Probabilistic Logic Layer</h1>
+<p align="center"><strong>Formal Entropy Reduction for Regulated Prediction Markets.</strong></p>
 
 ---
 
-## Overview
+## 🏗️ Theoretical Architecture
 
-**Lyra** is a specialized, local-first settlement engine designed for the **Kalshi** ecosystem. It is engineered for developers who require sub-millisecond data triangulation and deterministic market resolution without the overhead of centralized oracular consensus.
+Regent-Core doesn't just "fetch data"; it builds a formal proof of reality. The system operates at the intersection of **Measure Theory** and **Bayesian Inference**, treating every data point as a signal meant to collapse a probability distribution into a binary settlement.
 
-Instead of relying on singular, fallible API endpoints, Lyra utilizes a **State-Space Search** model to map real-world entropy into binary finality ($S \to \{0, 1\}$). It collapses the infrastructure burden of event verification into a lightweight, high-performance runtime optimized for cold-start investigation and zero-trust auditability.
+### 1. Bayesian Truth Synthesis
+Instead of binary "True/False" ingestion, Regent maintains a continuous belief state. It utilizes **Bayesian Updating** to refine market outcomes as evidence ($E$) arrives from disjoint sources.
 
-It is intended for environments where you want:
+$$P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}$$
 
-- **Autonomous Settlement** without manual intervention or human-in-the-loop latency.
-- **Multi-Vector Triangulation** across disjoint datasets (IoT, SEC, NOAA, Web).
-- **Sub-500ms Resolution** from event expiry to capital liberation.
-- **Formal Verification** of settlement logic against contract specifications.
+- **P(H):** The prior probability (the market price at $t_{-1}$).
+- **P(E|H):** The likelihood of seeing this specific data if the event is true.
+- **P(H|E):** The posterior probability—Regent's updated confidence score.
 
----
+### 2. Martingales & Market Integrity
+To maintain Kalshi's regulatory standards, the engine models price action as a **Martingale**. The system assumes that in an efficient market, the conditional expectation of the next value, given all prior observations, is equal to the current value.
 
-## System Overview
+> **Invariant:** $E[X_{n+1} \mid X_1, \dots, X_n] = X_n$
 
-Lyra acts as a compact, concurrent runtime for truth-seeking agents. It reduces the operational complexity of the broader oracle stack by condensing investigation, synthesis, and cryptographic signing into a single, performance-tuned environment.
+If the settlement engine detects a "Non-Martingale" jump that isn't backed by high-confidence data ingestion, Regent triggers a **State-Space Guardrail** to prevent flash-settlement errors.
 
-The project emphasizes:
+### 3. Shannon Entropy & Divergence
+Regent measures the "cleanliness" of truth through **Information Theory**. When cross-referencing multiple $N$ sources, it calculates the **Kullback–Leibler (KL) Divergence** to quantify disagreement.
 
-- **Non-Blocking I/O** utilizing `io_uring` for massive parallel data ingestion.
-- **Bayesian Updating** for generating high-confidence settlement scores.
-- **LLM-Augmented Reasoning** for parsing complex legislative or regulatory text.
-- **Minimal Operational Footprint** compared to full cloud-based oracle networks.
-
-This makes it indispensable for high-frequency prediction trading, automated market making, and developers building the next generation of regulated risk-management tools.
+- **Low Divergence:** Sources agree; Regent proceeds to high-speed settlement.
+- **High Divergence:** Sources conflict; Regent escalates to a **Recursive Source Validation (RSV)** loop to find the "Information Bottleneck."
 
 ---
 
-## Key Features
+## 🧬 Probability Tooling
 
-- **Deterministic Logic Engine** Uses Z3 SMT solvers to ensure settlement decisions strictly adhere to contract invariants.
-
-- **Recursive Source Validation (RSV)** Eliminates single-point-of-failure by cross-referencing $N$ independent data streams.
-
-- **High-Concurrency Ingress** Optimized Rust-based ingestors for real-time WebSocket and gRPC feed processing.
-
-- **Explainable Evidence Bundles** Generates immutable, cryptographically signed snapshots of the data state at $t_0$.
-
-- **Zero-Trust Finality** Built-in support for ZK-proofs to verify data retrieval without compromising source integrity.
+| Framework | Implementation | Purpose |
+| :--- | :--- | :--- |
+| **Measure Theory** | Lebesgue Integration | Handling continuous outcome spaces ($S \in \mathbb{R}$). |
+| **Stochastic Calculus** | Ito's Lemma | Modeling volatility decay in long-tail event contracts. |
+| **Concentration Bounds** | Chernoff/Hoeffding | Quantifying "Tail Risk" of simultaneous source failure. |
+| **Algorithmic Prob.** | Kolmogorov Complexity | Minimizing the "Evidence Bundle" size for ZK-proofs. |
 
 ---
 
-## Technology Stack
+## 🛠️ Technical Stack
 
-- **Rust** Core runtime implemented for memory safety, SIMD-accelerated parsing, and zero-cost abstractions.
-
-- **vLLM / TensorRT** Local inference engine for high-speed contextual reasoning on unstructured data.
-
-- **NATS JetStream** Lightweight, distributed messaging for ultra-low latency inter-agent communication.
-
-- **DragonflyDB** Multi-threaded, in-memory state storage for real-time market-state tracking.
+- **Z3 SMT Solver:** For mapping probabilistic outcomes into **Formal Logic** ($P \to \{0, 1\}$).
+- **Rust (Rayon/Tokio):** Parallelizing **Measure-Concentration** calculations across multi-node clusters.
+- **NATS JetStream:** Propagating **Markov State** changes with <5ms global propagation.
+- **gRPC / Protobuf:** Ensuring strictly typed schemas for all random variables.
 
 ---
 
-## Use Cases
+## 📲 Integration
 
-Lyra is a good fit for:
+### Bayesian Update Example (Pseudo-Rust)
+```rust
+let prior = MarketState::fetch(contract_id);
+let evidence = RegentIngestor::triangulate(vec![NOAA_API, REUTERS_FEED]);
 
-- Local development of proprietary settlement bots.
-- Automated liquidity provision in "long-tail" or niche markets.
-- Real-time hedging of physical-world risks (weather, policy, economics).
-- High-frequency arbitrage between disjoint prediction venues.
-- Research into automated regulatory compliance and CFTC-grade auditing.
+// Calculate posterior using KL-Divergence guardrails
+let posterior = prior.apply_bayes(evidence)
+    .verify_logic_invariants() // Z3 Check
+    .map_err(|e| RegentError::EntropyTooHigh(e))?;
 
----
-
-## Quick Start
-
-### 1. Clone the repository
-
-```bash
-git clone [https://github.com/kalshi-labs/lyra.git](https://github.com/kalshi-labs/lyra.git)
-cd lyra
+if posterior.confidence > 0.9999 {
+    Regent::settle(contract_id, posterior.outcome);
+}
