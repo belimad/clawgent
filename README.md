@@ -13,15 +13,11 @@
 
 Regent-Core is an autonomous cognitive engine that operates beyond task-specific narrow AI. It maps high-dimensional sensory tokens directly into executable logical actions, treating environmental inputs as dynamic state spaces to be fully modeled, parsed, and mastered.
 
-### 1. Bayesian Belief Revision
+### 1. Belief Revision
 Instead of static classification, Regent maintains a continuous world model. It continuously updates its internal belief states about the environment ($H$) as real-time multi-modal tokens ($E$) are processed:
-
-$$P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}$$
 
 ### 2. Policy Stability & Safety
 To guarantee operational reliability during long-horizon tasks, policy exploration is modeled as a discrete-time Martingale. This ensures the expected utility of future cognitive states remains balanced against current reward landscapes:
-
-$$\mathbb{E}[X_{n+1} \mid X_1, \dots, X_n] = X_n$$
 
 If unintended reward hacking or drift is detected, the safety guardrail isolates execution to prevent alignment failures.
 
