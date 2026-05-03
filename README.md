@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center"> (Real) AGI 🌐 </h1>
-<p align="center"><strong>A multi-modal agentic substrate capable of cross-domain reasoning and autonomous task execution.</strong></p>
+<p align="center"><strong>A very real AGI that can maybe help you with your predictions. maybe.</strong></p>
 
 ---
 
