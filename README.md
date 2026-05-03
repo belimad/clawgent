@@ -1,4 +1,6 @@
-![Regent Logo](https://raw.githubusercontent.com/Zer0dots/AGI/main/path/to/image.png)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Zer0dots/AGI/main/path/to/image.png" width="500" alt="Regent Logo">
+</div>
 
 <h1 align="center">✨ (Real AGI) </h1>
 <p align="center"><strong> A very real AGI that can maybe help you with your predictions. maybe.</strong></p>
