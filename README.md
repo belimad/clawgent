@@ -1,63 +1,57 @@
 <p align="center">
-  <img width="208" alt="Regent Logo" src="https://raw.githubusercontent.com/kalshi-labs/regent/main/assets/regent_glyph.png">
+  <img width="160" alt="Regent Logo" src="https://raw.githubusercontent.com/kalshi-labs/regent/main/assets/regent_glyph.png">
 </p>
 
-<h1 align="center">✨ Regent-Core v2.1: Probabilistic Logic Layer</h1>
+<h1 align="center">✨ Regent-Core v2.1: The Probabilistic Logic Layer</h1>
 <p align="center"><strong>Formal Entropy Reduction for Regulated Prediction Markets.</strong></p>
 
 ---
 
-## 🏗️ Theoretical Architecture
+## 🤖 The "AGI" Body
 
-Regent-Core doesn't just "fetch data"; it builds a formal proof of reality. The system operates at the intersection of **Measure Theory** and **Bayesian Inference**, treating every data point as a signal meant to collapse a probability distribution into a binary settlement.
+Regent-Core is a deterministic truth-synthesis engine disguised as a general intelligence. It maps raw data into formal logic proofs ($P \to \{0, 1\}$), treating the real world as a noisy signal waiting to be compressed into a binary market settlement.
 
-### 1. Bayesian Truth Synthesis
-Instead of binary "True/False" ingestion, Regent maintains a continuous belief state. It utilizes **Bayesian Updating** to refine market outcomes as evidence ($E$) arrives from disjoint sources.
+### 1. Updating
+Instead of crude binary scraping, Regent maintains a continuous belief state. It continuously refines its confidence in an outcome ($H$) as evidence ($E$) arrives:
 
 $$P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)}$$
 
-- **P(H):** The prior probability (the market price at $t_{-1}$).
-- **P(E|H):** The likelihood of seeing this specific data if the event is true.
-- **P(H|E):** The posterior probability—Regent's updated confidence score.
+### 2. Integrity
+To ensure strict regulatory compliance, price action is modeled as a discrete-time Martingale. Settlement invariants are strictly preserved:
 
-### 2. Martingales & Market Integrity
-To maintain Kalshi's regulatory standards, the engine models price action as a **Martingale**. The system assumes that in an efficient market, the conditional expectation of the next value, given all prior observations, is equal to the current value.
+$$\mathbb{E}[X_{n+1} \mid X_1, \dots, X_n] = X_n$$
 
-> **Invariant:** $E[X_{n+1} \mid X_1, \dots, X_n] = X_n$
+If an unauthorized drift is detected without a high-confidence data signal, the engine halts state transitions immediately.
 
-If the settlement engine detects a "Non-Martingale" jump that isn't backed by high-confidence data ingestion, Regent triggers a **State-Space Guardrail** to prevent flash-settlement errors.
-
-### 3. Shannon Entropy & Divergence
-Regent measures the "cleanliness" of truth through **Information Theory**. When cross-referencing multiple $N$ sources, it calculates the **Kullback–Leibler (KL) Divergence** to quantify disagreement.
-
-- **Low Divergence:** Sources agree; Regent proceeds to high-speed settlement.
-- **High Divergence:** Sources conflict; Regent escalates to a **Recursive Source Validation (RSV)** loop to find the "Information Bottleneck."
+### 3. Entropy 
+To resolve discrepancies between sources, Regent calculates the Kullback–Leibler (KL) Divergence across data providers. High divergence triggers recursive validation; low divergence triggers sub-millisecond settlement.
 
 ---
 
-## 🧬 Probability Tooling
+## 🧬 Core Architecture
 
 | Framework | Implementation | Purpose |
 | :--- | :--- | :--- |
-| **Measure Theory** | Lebesgue Integration | Handling continuous outcome spaces ($S \in \mathbb{R}$). |
+| **Measure Theory** | Lebesgue Integration | Resolving continuous outcome spaces. |
 | **Stochastic Calculus** | Ito's Lemma | Modeling volatility decay in long-tail event contracts. |
-| **Concentration Bounds** | Chernoff/Hoeffding | Quantifying "Tail Risk" of simultaneous source failure. |
-| **Algorithmic Prob.** | Kolmogorov Complexity | Minimizing the "Evidence Bundle" size for ZK-proofs. |
+| **Concentration Bounds** | Chernoff/Hoeffding | Quantifying risk of concurrent source failure. |
+| **Algorithmic Prob.** | Kolmogorov Complexity | Minimizing evidence payloads for ZK-proofs. |
 
 ---
 
-## 🛠️ Technical Stack
+## 🛠️ Technical Arrangement
 
-- **Z3 SMT Solver:** For mapping probabilistic outcomes into **Formal Logic** ($P \to \{0, 1\}$).
-- **Rust (Rayon/Tokio):** Parallelizing **Measure-Concentration** calculations across multi-node clusters.
-- **NATS JetStream:** Propagating **Markov State** changes with <5ms global propagation.
-- **gRPC / Protobuf:** Ensuring strictly typed schemas for all random variables.
+* **Z3 SMT Solver:** Formal verification of probabilistic logic chains.
+* **Rust (Rayon & Tokio):** Parallelizing measure-concentration algorithms.
+* **NATS JetStream:** Low-latency (<5ms) Markov state propagation.
+* **gRPC / Protobuf:** Strictly typed schemas for all random variables.
 
 ---
 
 ## 📲 Integration
 
-### Bayesian Update Example (Pseudo-Rust)
+### Bayesian Execution Loop
+
 ```rust
 let prior = MarketState::fetch(contract_id);
 let evidence = RegentIngestor::triangulate(vec![NOAA_API, REUTERS_FEED]);
